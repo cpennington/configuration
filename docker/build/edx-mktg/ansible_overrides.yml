@@ -1,0 +1,5 @@
+---
+EDX_MKTG_REPOS: !!null
+EDX_MKTG_MYSQL: 'db'
+EDX_MKTG_MYSQL_MATCHER: '%'
+

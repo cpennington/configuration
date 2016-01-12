@@ -1,0 +1,33 @@
+---
+#
+# edX Configuration
+#
+# github:     https://github.com/edx/configuration
+# wiki:       https://github.com/edx/configuration/wiki
+# code style: https://github.com/edx/configuration/wiki/Ansible-Coding-Conventions
+# license:    https://github.com/edx/configuration/blob/master/LICENSE.TXT
+#
+##
+# Role includes for role edx_mktg
+# 
+# Example:
+#
+# dependencies:
+#   - {
+#   role: my_role 
+#   my_role_var0: "foo"
+#   my_role_var1: "bar"
+# }
+dependencies:
+  - common
+  - supervisor
+  - role: edx_service
+    edx_service_name: "{{ edx_mktg_service_name }}"
+    edx_service_config: "{{ EDX_MKTG_SERVICE_CONFIG }}"
+    edx_service_repos: "{{ EDX_MKTG_REPOS }}"
+    edx_service_user: "{{ edx_mktg_user }}"
+    edx_service_home: "{{ edx_mktg_home }}"
+    edx_service_packages:
+      debian: "{{ edx_mktg_debian_pkgs }}"
+      redhat: "{{ edx_mktg_redhat_pkgs }}"
+    when: "EDX_MKTG_REPOS"

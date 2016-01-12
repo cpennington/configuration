@@ -1,0 +1,41 @@
+---
+#
+# edX Configuration
+#
+# github:     https://github.com/edx/configuration
+# wiki:       https://github.com/edx/configuration/wiki
+# code style: https://github.com/edx/configuration/wiki/Ansible-Coding-Conventions
+# license:    https://github.com/edx/configuration/blob/master/LICENSE.TXT
+#
+##
+# Defaults for role edx_mktg
+# 
+
+#
+# vars are namespaced with the module name.
+#
+edx_mktg_role_name: edx_mktg
+
+EDX_MKTG_GIT_IDENTITY: !!null
+
+edx_mktg_service_name: "edx_mktg"
+EDX_MKTG_SERVICE_CONFIG: {}
+EDX_MKTG_REPOS:
+  - PROTOCOL: "ssh"
+    DOMAIN: "{{ COMMON_GIT_MIRROR }}"
+    PATH: "{{ COMMON_GIT_PATH }}"
+    REPO: edx-mktg.git
+    VERSION: "{{ EDX_MKTG_VERSION }}"
+    DESTINATION: "{{ edx_mktg_code_dir }}"
+    SSH_KEY: "{{ EDX_MKTG_GIT_IDENTITY }}"
+
+edx_mktg_user: "{{ edx_mktg_service_name }}"
+edx_mktg_home: "{{ COMMON_APP_DIR }}/{{ edx_mktg_service_name }}"
+edx_mktg_code_dir: "{{ edx_mktg_home }}/{{ edx_mktg_service_name }}"
+
+# OS packages
+#
+
+edx_mktg_debian_pkgs: []
+
+edx_mktg_redhat_pkgs: []
