@@ -35,5 +35,6 @@ RUN sudo /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook harprofiler
 
 USER root
 
-ENTRYPOINT ["/edx/app/harprofiler/venvs/harprofiler/bin/python", "/edx/app/harprofiler/harprofiler/harprofiler.py"]
+WORKDIR /edx/app/harprofiler/harprofiler
+ENTRYPOINT ["/edx/app/harprofiler/venvs/harprofiler/bin/python", "harprofiler.py"]
 CMD ["--help"]
