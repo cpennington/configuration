@@ -6,7 +6,12 @@ from os.path import splitext, basename, exists, dirname
 import sys
 import time
 
-from ansible.plugins.callback import CallbackBase
+try:
+    from ansible.plugins.callback import CallbackBase
+except ImportError:
+    # Support Ansible 1.9.x
+    CallbackBase = object
+
 import datadog
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
