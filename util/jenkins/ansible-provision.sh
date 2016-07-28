@@ -21,6 +21,8 @@ set -x
 env
 export PYTHONUNBUFFERED=1
 export BOTO_CONFIG=/var/lib/jenkins/${aws_account}.boto
+export PAVER_TIMER_LOG=/tmp/timing/paver/%Y-%m-%d.log
+export ANSIBLE_TIMER_LOG=/tmp/timing/ansible/%Y-%m-%d.log
 
 run_ansible() {
   if [[ "$VERBOSE" == "true" ]]; then
